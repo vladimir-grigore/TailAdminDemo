@@ -7,7 +7,7 @@ import Button from "../../components/ui/button/Button";
 import { EyeCloseIcon, EyeIcon } from "../../icons";
 
 
-export default function SignIn() {
+export default function PortalSignIn() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -24,9 +24,9 @@ export default function SignIn() {
             className="mb-6 w-32 h-auto"
           />
 
-          <div className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Login</div>
-          
-          <form className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+          <div className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Login</div>
+
+          <form className="w-full max-w-1/3 p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="space-y-6">
               <div>
                 <Label>
@@ -57,6 +57,15 @@ export default function SignIn() {
                 </div>
               </div>
 
+              <div className="flex items-center justify-between">
+                <Link
+                  to="/password-recovery"
+                  className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+
               <div>
                 <Button className="w-full" size="sm">
                   LOGIN
@@ -68,7 +77,7 @@ export default function SignIn() {
                   to="/signup"
                   className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
                 >
-                  or Signup
+                  or Sign Up
                 </Link>
               </div>
             </div>

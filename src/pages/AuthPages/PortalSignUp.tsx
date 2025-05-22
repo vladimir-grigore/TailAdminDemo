@@ -3,11 +3,19 @@ import { Link } from "react-router";
 import PageMeta from "../../components/common/PageMeta";
 import Label from "../../components/form/Label";
 import Input from "../../components/form/input/InputField";
+import PhoneInput from "../../components/form/group-input/PhoneInput";
 import Button from "../../components/ui/button/Button";
 import { EyeCloseIcon, EyeIcon } from "../../icons";
 
 export default function PortalSignUp() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const countries = [
+    { code: "US", label: "+1" },
+    { code: "GB", label: "+44" },
+    { code: "CA", label: "+1" },
+    { code: "AU", label: "+61" },
+  ];
 
   return (
     <>
@@ -22,11 +30,11 @@ export default function PortalSignUp() {
             alt="Buoy Local Logo"
             className="mb-6 w-32 h-auto"
           />
-          
-          <div className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Welcome to Buoy Local</div>
+
+          <div className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Welcome to Buoy Local</div>
           <div className="text-base font-normal text-gray-700 dark:text-gray-300 mb-4">Suppporting local businesses one transaction at a time</div>
-          
-          <form className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+          <form className="w-full max-w-1/3 p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="space-y-5">
               <div>
                 <Label>
@@ -42,18 +50,6 @@ export default function PortalSignUp() {
 
               <div>
                 <Label>
-                  Phone<span className="text-error-500">*</span>
-                </Label>
-                <Input
-                  type="text"
-                  id="fname"
-                  name="phone"
-                  placeholder="Phone"
-                />
-              </div>
-
-              <div>
-                <Label>
                   Email<span className="text-error-500">*</span>
                 </Label>
                 <Input
@@ -61,6 +57,17 @@ export default function PortalSignUp() {
                   id="email"
                   name="email"
                   placeholder="Enter your email"
+                />
+              </div>
+
+              <div>
+                <Label>
+                  Phone<span className="text-error-500">*</span>
+                </Label>
+                <PhoneInput
+                  selectPosition="start"
+                  countries={countries}
+                  placeholder="+1 (555) 000-0000"
                 />
               </div>
 
@@ -120,7 +127,7 @@ export default function PortalSignUp() {
                     to="/"
                     className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
                   >
-                    or Log in
+                    or Log In
                   </Link>
                 </p>
               </div>
